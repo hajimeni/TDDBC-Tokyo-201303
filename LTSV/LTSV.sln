@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LTSV", "LTSV\LTSV.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LTSV.Tests", "LTSV.Tests\LTSV.Tests.csproj", "{582B743D-851F-43EB-8338-5064CE0A5B7C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2BA9EB42-D586-4BC5-B3B8-5B72267F7363}"
+	ProjectSection(SolutionItems) = preProject
+		仕様.txt = 仕様.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

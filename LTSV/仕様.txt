@@ -1,0 +1,36 @@
+LTSV　(Labelled Tab Separated Value)
+
+string Set(string key, string value)
+	key に対して value を追加/置換する。
+		追加した場合は null を返す。
+		置換した場合は、古い値を返す。
+	キーが null の場合は例外
+		ArgumentNullException
+	キーが空文字の場合は例外
+		ArgumentException
+		独自の ArgumentEmptyException ?
+	value が null の場合は例外
+		ArgumentNullException
+	value に空文字は OK
+	MEMO: ltsv[key] = value; だと、古い値が返せない。
+
+string Get(string key)
+	key に対する値を返す。
+	無かったら null を返す（set との統一性）。
+	string value = ltsv[key];
+		set でインデクサを使わないなら、対称性を考えて、get でも使わないべきか？
+		TODO: とりあえずメソッドで実装しておいて、インデクサを使うかどうかはあとで考える。
+	
+string Dump()
+	"key:value\tkey:value...\r\n" の形式で返す
+		\n じゃなくて \r\n にしました。
+	追加/置換した順（set を呼んだ順）。
+	TODO: value が空文字の場合の見せ方は？
+		"key:\t"
+
+	データにコロンが入っていたら？	"key:foo\:bar"
+	データに改行が入っていたら？	"key:foo\\nbar" \r\n?
+	データにタブが入っていたら？	"key:foo\\tbar"
+	データにバックスラッシュが入っていたら？	"key:foo\\bar"
+		→バックスラッシュでエスケープ（dump で行う。get では行わない）
+	制御文字…？
